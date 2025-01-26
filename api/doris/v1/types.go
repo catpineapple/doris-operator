@@ -64,6 +64,10 @@ type DorisClusterSpec struct {
 	// the name of secret that type is `kubernetes.io/basic-auth` and contains keys username, password for management doris node in cluster as fe, be register.
 	// the password key is `password`. the username defaults to `root` and is omitempty.
 	AuthSecret string `json:"authSecret,omitempty"`
+
+	// Enable configmap monitoring, default is false.
+	// When EnableWatchConfigmap is true, changing the doris core configmap will cause a rolling restart of the corresponding node
+	EnableWatchConfigmap bool `json:"enableWatchConfigmap,omitempty"`
 }
 
 // AdminUser describe administrator for manage components in specified cluster.
